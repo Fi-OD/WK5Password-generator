@@ -102,6 +102,50 @@ let upperCasedCharacters = [
   'Z'
 ];
 
+
+let passwordLength = prompt("Enter your required password length. It must be at least 10 characters but no more than 64")
+// if number is 10 or greater and less than 64 store this an password array
+// If >64 or <10 ask the user to reenter 
+if (passwordLength < 10) {
+  prompt("Please enter a number between 10 and 64");
+}
+if (passwordLength > 64) {
+  prompt("Please enter a number between 10 and 64");
+}
+
+// ask the user about their preference for lower case letter in their password
+// store the result in an object
+let lowerCase = confirm("would you like to include Lowercase characters");
+//add the results/concat to the password object array
+if (lowerCase==true) {
+  passwordObject = passwordObject.concat(lowerCasedCharacters);
+}
+
+// ask the user about their preference for upper case letter in their password
+// store the result in an object
+let upperCase = confirm("would you like to include Uppercase ")
+// add the results/concat to the password array
+if (upperCase==true) {
+  passwordObject = passwordObject.concat(upperCasedCharacters);
+}
+
+// ask the user about their preference for numbers in their password
+// store the result in an object
+let numbers = confirm("Would you like to include numbers in your pasword")
+// add the results/concat to the password array
+if (numbers==true) {
+  passwordObject = passwordObject.concat(numericCharacters);
+}
+
+// ask the user about their preference for special characters in their password
+// store the result in an object
+let special = confirm ("would you like to include special characters")
+// add the results/concat to the password array
+if (special==true) {
+  passwordObject = passwordObject.concat(specialCharacters);
+}
+
+
 // Function to prompt user for password options
 function getPasswordOptions() {
 
@@ -130,30 +174,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-// store user password option in a variable 
-let passwordVariables = 0
-
-let passwordLength = prompt("Enter your required password length. It must be at least 10 characters but no more than 64")
-// if number is 10 or greater and less than 64 store this an password array
-// If >64 or <10 ask the user to reenter 
-if (passwordLength < 10) {
-  prompt("Please enter a number between 10 and 64");
-}
-if (passwordLength >64) {
-  prompt("Please enter a number between 10 and 64");
-}
-
-
-let lowerCase = confirm ("would you like to include Lowercase characters")
-//add the results/concat to the password array
-
-let upperCase = confirm("would you like to include Uppercase ")
-// add the results/concat to the password array
-
-let numbers = confirm("Would you like to include numbers in your pasword")
-// add the results/concat to the password array
-
-let special = confirm ("would you like to include special characters")
-// add the results/concat to the password array
 
