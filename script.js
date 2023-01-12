@@ -102,21 +102,22 @@ let upperCasedCharacters = [
   'Z'
 ];
 
-let passwordOption=0;
+let passwordOption=0
 let passwordArray= [];
 
 // confirm how long the user would like the password to be
 
-/*let passwordLength = prompt("Enter your required password length. It must be at least 10 characters but no more than 64");
+let passwordLength = prompt("Enter your required password length. It must be at least 10 characters but no more than 64");
 // if number is 10 or greater and less than 64 store this to be called later when selecting the number of characters required from the password string
 // If >64 or <10 ask the user to reenter 
-if (passwordLength < 10) {
+if (passwordLength < 10 ) {
   prompt("Please enter a number between 10 and 64");
 }
 else if (passwordLength > 64) {
   prompt("Please enter a number between 10 and 64");
-}*/
+}
 
+console.log(passwordLength)
 
 // ask the user about what character preference for their password including, upper & lower case, numbers and special character
 
@@ -153,12 +154,17 @@ if (special===true) {
   passwordArray = passwordArray.concat(specialCharacters);
 };
 
-console.log (passwordArray)
-
+console.log (passwordArray);
+console.log(numbers);
+console.log(upperCase);
+console.log(lowerCase);
+console.log(special);
 
 // if no character preferences are given provide an error message and cycle back through the user options
-let noPref = confirm("please provide at least one character preference");
-if (noPref === (special==false,numbers==false,upperCase==false,lowerCase==false)) {
+let noPref = []
+if (noPref === (special===false && numbers===false && upperCase===false && lowerCase===false)) {
+
+  console.log("please provide at least one character preference")
   
 }
 
@@ -175,10 +181,10 @@ function getPasswordOptions() {
 // At random select an item from the password array and this to the password
 // this should be in a for loop and should run until the password length and password options are met
 function getRandom(arr) {
-  
-
+  passwordOption=Math.floor(math.random()*passwordArray.length)
 }
- 
+console.log(passwordOption)
+
 // Function to generate password with user input
 function generatePassword() {
 
