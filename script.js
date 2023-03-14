@@ -1,16 +1,3 @@
-//when the user opens the page a window opens and asking how long you would like the password to be. It must be between 10 -64
-//The user enters the length of the password they want and presses confirm
-//The next window opens asking if the users wants to include lower cases yes or no
-//If it is less than 10 or more than 64 it return an error and asks the user to re-enter
-//The next window opens and asks if the user would like to use Uppercase yes or no
-//The next window opens and asks if the users would like to uses numbers
-// The next window opens and asks if the user would like to use any special characters
-// The responses to the prompts are stored in an object
-// The password that meets the requirements is returned
-
-
-
-
 
 // Array of special characters to be included in password
 let specialCharacters = [
@@ -101,6 +88,82 @@ let upperCasedCharacters = [
   'Y',
   'Z'
 ];
+
+
+// Function to generate random password
+function generatePassword() {
+  // Prompt user for password length
+  let length = prompt("Enter your password length (8-128 characters):");
+
+  // Validate password length
+  if (length < 8 || length > 128) {
+    alert("Your password must be between 8 and 128 characters.");
+    
+    return "";
+  }
+
+// ask the user about what character preference for their password including, upper & lower case, numbers and special character
+  let includeLowercase = confirm("Do you want to include lowercase characters?");
+  let includeUppercase = confirm("Do you want to include uppercase characters?");
+  let includeNumeric = confirm("Do you want to include numeric characters?");
+  let includeSpecial = confirm("Do you want to include special characters? ($@%&*)");
+
+  // Warning at least one character type has to be selected
+  if (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial) {
+    alert("Warning: Please ensure you select at least one character.");
+    
+    return "";
+  }
+
+  //console.log(lowerCasedCharacters)
+  //console.log(upperCasedCharacters)
+  //console.log(numericCharacters)
+  //console.log(specialCharacters)
+
+  // Build character set based on user selections
+  let passwordOption = [];
+if (includeLowercase) passwordOption.push(...lowerCasedCharacters);
+if (includeUppercase) passwordOption.push(...upperCasedCharacters);
+if (includeNumeric) passwordOption.push(...numericCharacters);
+if (includeSpecial) passwordOption.push(...specialCharacters);
+
+  // Generate random password
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    let randomIndex = Math.floor(Math.random() * passwordOption.length);
+    //console.log(passwordOption)
+    //console.log(passwordOption[randomIndex])
+    password += passwordOption[randomIndex];
+  }
+
+  console.log(password)
+  // Return generated password
+  return password;
+  
+}
+
+// Function to handle button click event
+function handleClick() {
+  let password = generatePassword();
+  if (password) {
+  // text sent to text box
+  let passwordText = document.querySelector('#password');
+  // assign that value to password 
+  passwordText.value = password;
+  }
+}
+
+// Add click event listener to button
+let generateButton = document.getElementById("generate");
+generateButton.addEventListener("click", handleClick);
+
+
+
+
+
+/*
+
+
 
 let passwordOption=0
 let passwordArray= [];
@@ -204,3 +267,6 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
+
+
+*/
