@@ -7,6 +7,8 @@ This application can be used to generate a random password based on selected cri
 ## Usage 
 Launch the page and follow the prompts to generate your unique password that matches your required length and character specification. 
 
+## Screenshot
+![This screen grab shows the results of the password generator](/Image/ScreenShot.png)
 
 ## Technology
 * HTML
